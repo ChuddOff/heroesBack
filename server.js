@@ -50,4 +50,4 @@ mongoose.connect(
 ).then(()=>console.log('connected')).catch(e=>console.log(e));
 
 
-server.listen(port)
+app.listen(port)
