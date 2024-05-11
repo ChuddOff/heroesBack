@@ -3,10 +3,10 @@ import 'dotenv/config';
 import zamer from './routes/route.js';
 import { MongoClient, ServerApiVersion } from  'mongodb';
 import mongoose, {Model} from 'mongoose';
-import cors from './middlewares/cors.js';
-import logger from './middlewares/logger.js';
-import {Server} from 'socket.io';
-import {createServer} from 'http';
+import cors from './middlewares/cors.js'
+import logger from './middlewares/logger.js'
+// import {Server} from 'socket.io';
+// import {createServer} from 'http';
 // import socketEventRouter from './socket/socket.js';
 
 
@@ -14,9 +14,9 @@ const port = process.env.PORT ?? 4000;
 
 const app = express();
 app.use(express.json());
-app.use(logger);
-app.use(cors);
-app.use("/api/zamer", zamer);
+app.use(logger)
+app.use(cors)
+app.use("/api/zamer", zamer)
 
 
 // const server = createServer(app);
