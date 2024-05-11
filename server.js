@@ -19,16 +19,16 @@ app.use(cors);
 app.use("/api/zamer", zamer);
 
 
-const server = createServer(app);
-const io = new Server(server, {
-    cors: {
-        origin: `${process.env.API_CLIENT_URL}`,
-        methods: ["GET", "POST", "PUT", "DELETE"]
-    }
-})
-io.on('connection', socket => {
-    socketEventRouter(io, socket)
-})
+// const server = createServer(app);
+// const io = new Server(server, {
+//     cors: {
+//         origin: `${process.env.API_CLIENT_URL}`,
+//         methods: ["GET", "POST", "PUT", "DELETE"]
+//     }
+// })
+// io.on('connection', socket => {
+//     socketEventRouter(io, socket)
+// })
 
 
 app.get('/', (req, res) => {
