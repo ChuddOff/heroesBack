@@ -1,7 +1,5 @@
 import {lodzi, lodziExtensive, heroes, filters} from '../models/model.js';
 
-import { v4 } from 'uuid';
-
 class Zamer{
 
     test(req, res) {
