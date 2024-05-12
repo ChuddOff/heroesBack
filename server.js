@@ -5,9 +5,9 @@ import { MongoClient, ServerApiVersion } from  'mongodb';
 import mongoose, {Model} from 'mongoose';
 import cors from './middlewares/cors.js'
 import logger from './middlewares/logger.js'
-// import {Server} from 'socket.io';
-// import {createServer} from 'http';
-// import socketEventRouter from './socket/socket.js';
+import {Server} from 'socket.io';
+import {createServer} from 'http';
+import socketEventRouter from './socket/socket.js'; 
 
 
 const port = process.env.PORT ?? 4000;
@@ -19,16 +19,16 @@ app.use(cors)
 app.use("/api/zamer", zamer)
 
 
-// const server = createServer(app);
-// const io = new Server(server, {
-//     cors: {
-//         origin: `${process.env.API_CLIENT_URL}`,
-//         methods: ["GET", "POST", "PUT", "DELETE"]
-//     }
-// })
-// io.on('connection', socket => {
-//     socketEventRouter(io, socket)
-// })
+const server = createServer(app);
+const io = new Server(server, {
+    cors: {
+        origin: `${process.env.API_CLIENT_URL}`,
+        methods: ["GET", "POST", "PUT", "DELETE"]
+    }
+})
+io.on('connection', socket => {
+    socketEventRouter(io, socket)
+})
 
 
 app.get('/', (req, res) => {
@@ -50,4 +50,4 @@ mongoose.connect(
 ).then(()=>console.log('connected')).catch(e=>console.log(e));
 
 
-app.listen(port)
+server.listen(port)

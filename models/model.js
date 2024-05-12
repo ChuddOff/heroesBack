@@ -66,6 +66,11 @@ const SchemaHeroes = new mongoose.Schema({
         type: String,
         required: true,
         unique: false
+    },
+    uri: {
+        type: String,
+        required: true,
+        unique: false
     }
 });
 

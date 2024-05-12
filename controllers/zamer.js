@@ -51,12 +51,13 @@ class Zamer{
 
      async addHero(req, res) {
           try {
-               const {name, description, element} = req.body;
+               const {name, description, element, uri} = req.body;
 
                const postHero = new heroes({
                     name: name,
                     description: description,
-                    element: element
+                    element: element,
+                    uri: uri
                })
 
                await postHero.save();
