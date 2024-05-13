@@ -60,11 +60,15 @@ class Zamer{
                     uri: uri
                })
 
-               await postHero.save();
+               const {_id} = await postHero.save();
+
+               console.log(_id);
 
                res.status(201).json({
-                    message: 'Успех'
+                    message: 'Успех',
+                    _id: _id
                });
+               
                
           }
           catch(err) {
