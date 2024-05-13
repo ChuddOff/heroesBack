@@ -10,7 +10,7 @@ import {createServer} from 'http';
 import socketEventRouter from './socket/socket.js'; 
 
 
-const port = process.env.PORT ?? 4000;
+const port = process.env.PORT ?? 4000; 
 
 const app = express();
 app.use(express.json());

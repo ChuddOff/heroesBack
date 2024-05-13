@@ -39,13 +39,18 @@ class Zamer{
                     _id: id
                })
 
-               res.status(200).json({ message: 'Hero successfully deleted' });
+               res.status(200).json({ 
+                    message: 'Hero successfully deleted',
+                    _id: id
+                });
                
           }
           catch(err) {
                console.error(123);
                console.error(err);
-               res.status(500).json({ message: 'Internal server error' });
+               res.status(500).json({
+                    message: 'Internal server error'
+               });
           }
      }
 
