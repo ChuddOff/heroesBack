@@ -7,4 +7,7 @@ export default function socketEventRouter(io, socket) {
     socket.on('delete', (data)  => {
         io.emit('delete', data);
     })
+    socket.on('connection', () => {
+        console.log(true);
+    })
 }
